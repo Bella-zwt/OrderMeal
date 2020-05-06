@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!-- 引入样式 -->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<link rel="stylesheet" href="http://localhost/OrderMeal/css/addadmin.css" />
+	</head>
+
+	<body>
+		<div id="app">
+			<div class="top">
+				<el-input placeholder="请输入内容" v-model="input1" id="input1">
+					<template slot="prepend">用户名：</template>
+				</el-input>
+			</div>
+			<div class="top">
+				<el-input placeholder="请输入内容" v-model="input2" id="input2">
+					<template slot="prepend">密码：</template>
+				</el-input>
+			</div>
+			<el-button class="top" type="primary" round @click="addAdmin()">提交</el-button>
+		</div>
+	</body>
+	<!-- 安装axios并引入 -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+	<!-- import Vue before Element -->
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<!-- 引入组件库 -->
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script src="http://localhost/OrderMeal/js/addadmin.js"></script>
+
+</html>

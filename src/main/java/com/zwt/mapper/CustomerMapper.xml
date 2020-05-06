@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper SYSTEM "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zwt.mapper.CustomerMapper">
+
+	<resultMap type="com.zwt.bean.Customer" id="customerMap">
+		<result column="CUSTOMERID" property="customerId" />
+		<result column="OPENID" property="openId" />
+		<result column="NICKNAME" property="nickName" />
+		<result column="SEX" property="sex" />
+		<result column="ISMEMBER" property="isMember" />
+		<result column="HEADIMG" property="headImg" />
+		<result column="MEMBERNUMBER" property="memberNumber" />
+		<result column="MEMBERTIME" property="memberTime" />
+	</resultMap>
+	
+	<select id="selectCustomer" resultMap="customerMap">
+	 select * from customer where OPENID=#{openId};
+	</select>
+	
+	<insert id="insertCustomer">
+		insert into customer values(#{customerId},#{openId},#{nickName},#{sex},0,#{headImg},null,null);
+	</insert>
+
+</mapper>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>餐厅后台管理系统</title>
+		<!-- 引入样式 -->
+		<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+		<link rel="stylesheet" href="http://localhost/OrderMeal/css/index.css"/>
+	</head>
+
+	<body>
+		<div id="app">
+			<el-container>
+				<el-header id="header">餐厅后台管理系统</el-header>
+			</el-container>
+			<el-container id="listbody" style="border: 1px solid #eee">
+				<el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+					<el-menu :default-openeds="['1', '2','3']">
+						<el-submenu index="1">
+							<template slot="title"><i class="el-icon-message"></i>订单</template>
+							<el-menu-item-group>
+								<template slot="title">操作</template>
+								<el-menu-item index="1-1" @click="toOrder()">订单列表</el-menu-item>
+							</el-menu-item-group>
+						</el-submenu>
+						<el-submenu index="2">
+							<template slot="title"><i class="el-icon-menu"></i>菜品</template>
+							<el-menu-item-group>
+								<template slot="title">操作</template>
+								<el-menu-item index="2-1" @click="toAddfood()">添加菜品信息</el-menu-item>
+								<el-menu-item index="2-2" @click="toChangefood()">修改菜品信息</el-menu-item>
+							</el-menu-item-group>
+							<el-submenu index="2-3">
+								<template slot="title">菜品分类管理</template>
+								<el-menu-item index="2-3-1" @click="toAddtype()">新增菜品分类</el-menu-item>
+								<el-menu-item index="2-3-2" @click="toChecktype()">查看菜品分类</el-menu-item>
+							</el-submenu>
+						</el-submenu>
+						<el-submenu index="3">
+							<template slot="title"><i class="el-icon-setting"></i>管理员</template>
+							<el-menu-item-group>
+								<template slot="title">操作</template>
+								<el-menu-item index="3-1" @click="toAdminlist()">管理员列表</el-menu-item>
+								<el-menu-item index="3-2" @click="toAddadmin()">新增管理员</el-menu-item>
+								<el-menu-item index="3-3" @click="toLunbo()">轮播图</el-menu-item>
+							</el-menu-item-group>
+						</el-submenu>
+					</el-menu>
+				</el-aside>
+
+				<el-container>
+					<iframe id="frame" src="/OrderMeal/iframe/order" frameborder="no"></iframe>
+				</el-container>
+			</el-container>
+		</div>
+	</body>
+	<!-- import Vue before Element -->
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<!-- 引入组件库 -->
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<script src="http://localhost/OrderMeal/js/index.js"></script>
+
+</html>

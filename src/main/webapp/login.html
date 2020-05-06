@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>particles.js</title>
+  <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+  <meta name="author" content="Vincent Garreau" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" media="screen" href="css/login.css">
+</head>
+<body>
+<!-- particles.js container -->
+<div id="particles-js" style="display: flex;align-items: center;justify-content: center">
+</div>
+<div class="login-page">
+   <div class="login-content">
+     <div class="login-tit">登录</div>
+     <div class="login-input">
+       <input type="text" id="username" name="username" placeholder="用户名">
+     </div>
+     <div class="login-input">
+      <input type="password" id="password" name="password" placeholder="密码">
+    </div>
+    <div class="login-btn">
+      <div class="login-btn-left" id="login">
+        <span>登录</span>
+      </div>
+      <div class="login-btn-right" onClick="changeImg()">
+        <!-- <img src="img/check.png" alt="" id="picture"> --> 记住密码
+      </div>
+    </div>
+   </div>
+</div>
+
+
+<!-- scripts -->
+<script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+<script src="js/particles.js"></script>
+<script src="js/app.js"></script>
+<script type="text/javascript">
+	$("#username").focusout(function() {
+		if (null == $(this).val() || $(this).val().length == 0) {
+			alert("用户名不能为空");
+			return;
+		}
+	});
+
+	$("#password").focusout(function() {
+		if (null == $(this).val() || $(this).val().length == 0) {
+			alert("密码不能为空");
+			return;
+		}
+	});
+
+	$("#login").click(function(){
+		$.ajax({
+			type:"post",
+			url:"/OrderMeal/admin/login",
+			data:{
+				username:$("#username").val(),
+				password:$("#password").val()
+			},
+		dataType:"json",
+		success:function(response){
+			console.log(response);
+			console.log($("#username").val());
+			console.log($("#password").val());
+			if(response.code=="null"){
+				alert("用户名或密码错误!");
+			}else{
+				window.location.href="/OrderMeal/view/index";
+			}
+		}
+		})
+	})
+	
+</script>
+<script>
+  function changeImg(){
+    let pic = document.getElementById('picture');
+    console.log(pic.src)
+    if(pic.getAttribute("src",2) =="img/check.png"){
+      pic.src ="img/checked.png"
+    }else{
+      pic.src ="img/check.png"
+    }
+  }
+</script>
+</body>
+</html>
