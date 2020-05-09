@@ -14,4 +14,13 @@ public interface FoodMapper {
 	
 	//展示菜品信息
 	public List<Food> selectAllFood();
+	
+	//根据菜品id修改菜品信息
+	public void updateFood(@Param("foodId")Integer foodId,@Param("typeId")Integer typeId,@Param("foodName")String foodName,@Param("foodPrice")double foodPrice,@Param("foodImg")String foodImg,@Param("foodInfo")String foodInfo,@Param("memberPrice")double memberPrice);
+	
+	//根据菜品种类ID筛选菜品
+	public List<Food> selectFoodByTypeId(@Param("typeId")Integer typeId);
+	
+	//根据菜品id筛选菜品
+	public Food selectFoodByFoodId(@Param("foodId")Integer foodId);
 }

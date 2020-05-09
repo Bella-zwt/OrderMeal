@@ -15,4 +15,7 @@ public interface FoodTypeMapper {
 	
 	//添加菜品种类
 	public void insertFoodType(@Param("typeId")Integer typeId,@Param("typeName")String typeName);
+	
+	//根据id查种类
+	public FoodType selectTypeById(@Param("typeId")Integer typeId);
 }

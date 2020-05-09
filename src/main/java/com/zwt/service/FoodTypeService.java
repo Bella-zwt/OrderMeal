@@ -12,4 +12,7 @@ public interface FoodTypeService {
 	
 	//添加菜品种类
 	public Map<String, String> addFoodType(Map<String, Object> foodtype);
+	
+	//根据Id查询种类
+	public FoodType selectTypeById(Integer typeId);
 }

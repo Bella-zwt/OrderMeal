@@ -14,5 +14,9 @@
 	<insert id="insertFoodType">
 		insert into foodtype values(#{typeId},#{typeName});
 	</insert>
+	
+	<select id="selectTypeById" resultMap="foodtypeMap">
+		select * from foodtype where TYPEID=#{typeId}
+	</select>
 
 </mapper>

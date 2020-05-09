@@ -64,7 +64,7 @@ var Main = {
 			var input3=document.getElementById("input3");
 			var textarea=document.getElementById("textarea");
 			var self=this;
-	    	axios.post('http://localhost/OrderMeal/food/addFood', {
+			axios.post('http://localhost/OrderMeal/food/addFood', {
 				foodImg:self.filePath,
 			    foodName:input1.value,
 			    foodPrice:input2.value*1,

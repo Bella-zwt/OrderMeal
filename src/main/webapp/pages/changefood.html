@@ -22,7 +22,7 @@
 							<el-image :src="scope.row.foodImg"></el-image>
 						</template>
 					</el-table-column>
-					<el-table-column align="center" prop="TYPEID" label="菜品种类">
+					<el-table-column align="center" prop="typeName" label="菜品种类">
 					</el-table-column>
 					<el-table-column align="center" prop="foodPrice" label="普通价格">
 					</el-table-column>
@@ -37,10 +37,6 @@
 					</el-table-column>
 				</el-table>
 			</template>
-			<div class="pagehelper">
-				<el-pagination background layout="prev, pager, next" :total="1000">
-				</el-pagination>
-			</div>
 		</div>
 	</body>
 	<!-- 安装axios并引入 -->

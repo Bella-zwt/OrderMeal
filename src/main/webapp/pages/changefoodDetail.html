@@ -12,35 +12,49 @@
 	<body>
 		<div id="app">
 			<div class="top">
-				<el-input placeholder="请输入菜品名称" v-model="input1">
+				<el-input placeholder="请输入菜品名称" v-model="input1" id="input1">
 					<template slot="prepend">菜品名称</template>
 				</el-input>
 			</div>
 			<div class="top">
-				<el-input placeholder="请输入菜品普通价格" v-model="input2">
+				<el-input placeholder="请输入菜品普通价格" v-model="input2" id="input2">
 					<template slot="prepend">菜品普通价格</template>
 				</el-input>
 			</div>
 			<div class="top">
-				<el-input placeholder="请输入会员价格" v-model="input3">
+				<el-input placeholder="请输入会员价格" v-model="input3" id="input3">
 					<template slot="prepend">会员价格</template>
 				</el-input>
 			</div>
 			<template>
-				<el-select class="top" v-model="value" placeholder="请选择菜品种类">
+				<el-select class="top" v-model="value" @change="getTypeID" placeholder="请选择菜品种类">
 					<el-option v-for="item in options" :key="item.value" :label="item.label" :value="item.value">
 					</el-option>
 				</el-select>
 			</template>
-			<el-input class="top" type="textarea" :rows="2" placeholder="请输入菜品描述" v-model="textarea">
+			<el-input class="top" type="textarea" :rows="2" placeholder="请输入菜品描述" v-model="textarea" id="textarea">
 			</el-input>
-			<el-upload class="top" class="upload-demo" :limit=1 action="https://jsonplaceholder.typicode.com/posts/" :on-preview="handlePreview" :on-remove="handleRemove" :file-list="fileList" list-type="picture">
+			<el-upload class="top upload-demo" 
+				:limit=1 
+				action="http://localhost/OrderMeal/file/upload"
+				:on-preview="handlePreview" 
+				:on-remove="handleRemove" 
+				:on-change="handleChange"
+				:on-success="handleSuccess"
+				:file-list="fileList" 
+				list-type="picture"
+				id="fileList"
+				name="file"
+				ref="upload"
+				:auto-upload="false">
 				<el-button size="small" type="primary">上传菜品图片</el-button>
 				<div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
 			</el-upload>
 			<el-button class="top" type="primary" round @click="backpage()">保存修改</el-button>
 		</div>
 	</body>
+	<!-- 安装axios并引入 -->
+	<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 	<!-- import Vue before Element -->
 	<script src="https://unpkg.com/vue/dist/vue.js"></script>
 	<!-- 引入组件库 -->

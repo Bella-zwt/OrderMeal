@@ -30,4 +30,9 @@ public class FoodTypeServiceImpl implements FoodTypeService {
 		return map;
 	}
 
+	@Override
+	public FoodType selectTypeById(Integer typeId) {
+		return foodtypeMapper.selectTypeById(typeId);
+	}
+
 }

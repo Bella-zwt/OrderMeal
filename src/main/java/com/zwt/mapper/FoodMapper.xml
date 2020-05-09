@@ -10,7 +10,7 @@
 		<result column="FOODIMG" property="foodImg" />
 		<result column="FOODINFO" property="foodInfo" />
 		<result column="SALENUMBER" property="saleNumber" />
-		<result column="MEMBERPRICE" property="memberPrice" />
+		<result column="MEMBERPEICE" property="memberPrice" />
 	</resultMap>
 	
 	<insert id="insertFood">
@@ -19,6 +19,26 @@
 	
 	<select id="selectAllFood" resultMap="foodMap">
 		select * from food
+	</select>
+	
+	<update id="updateFood">
+		update food 
+		set 
+		TYPEID=#{typeId},
+		FOODNAME=#{foodName},
+		FOODPRICE=#{foodPrice},
+		FOODIMG=#{foodImg},
+		FOODINFO=#{foodInfo},
+		MEMBERPEICE=#{memberPrice}
+		where FOODID=#{foodId}
+	</update>
+	
+	<select id="selectFoodByTypeId" resultMap="foodMap">
+		select * from food where TYPEID=#{typeId}
+	</select>
+	
+	<select id="selectFoodByFoodId" resultMap="foodMap">
+		select * from food where FOODID=#{foodId}
 	</select>
 
 </mapper>

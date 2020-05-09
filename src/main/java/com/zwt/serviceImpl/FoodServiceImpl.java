@@ -32,5 +32,21 @@ public class FoodServiceImpl implements FoodService {
 		return foodMapper.selectAllFood();
 	}
 
+	@Override
+	public void updateFood(Integer foodId, Integer typeId, String foodName, double foodPrice, String foodImg,
+			String foodInfo, double memberPrice) {
+		foodMapper.updateFood(foodId, typeId, foodName, foodPrice, foodImg, foodInfo, memberPrice);
+	}
+
+	@Override
+	public List<Food> selectFoodByTypeId(Integer typeId) {
+		return foodMapper.selectFoodByTypeId(typeId);
+	}
+
+	@Override
+	public Food selectFoodByFoodId(Integer foodId) {
+		return foodMapper.selectFoodByFoodId(foodId);
+	}
+
 	
 }
