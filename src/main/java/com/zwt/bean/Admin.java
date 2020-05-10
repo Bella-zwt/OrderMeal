@@ -1,5 +1,8 @@
 package com.zwt.bean;
 
+
+
+
 public class Admin {
 	
 	private String username;

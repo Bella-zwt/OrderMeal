@@ -1,5 +1,8 @@
 package com.zwt.bean;
 
+
+
+
 public class Collection {
 
 	private Integer customerId;
