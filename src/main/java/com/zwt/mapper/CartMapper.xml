@@ -18,5 +18,14 @@
 	<select id="selectByOpenId" resultMap="cartMap">
 		select * from cart where OPENID=#{openId}
 	</select>
+	<delete id="deleteAllCart">
+		delete from cart where OPENID=#{openId}
+	</delete>
+	<update id="addNum">
+		update cart set NUM=NUM+1 where OPENID=#{openId} and FOODID=#{foodId};
+	</update>
+	<update id="subNum">
+		update cart set NUM=NUM-1 where OPENID=#{openId} and FOODID=#{foodId};
+	</update>
 
 </mapper>

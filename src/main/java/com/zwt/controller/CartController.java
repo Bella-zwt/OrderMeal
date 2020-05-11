@@ -42,17 +42,47 @@ public class CartController {
 		}
 		return map2;
 	}
+	
 	@RequestMapping("loadCart")
 	@ResponseBody
 	public Map<String, Object> loadCart(@RequestParam String openId) {
 		Map<String, Object> map2 = new HashMap<String, Object>();
-		System.out.println(openId);
 		List<Cart> carts = cartSertvice.selectByOpenId(openId);
 		List<CartFood> realCarts = new ArrayList<CartFood>();
 		for (Cart cart : carts) {
 			realCarts.add(new CartFood(foodService.selectFoodByFoodId(cart.getFoodId()), cartSertvice.selectCart(openId, cart.getFoodId())));
 		}
 		map2.put("foods", realCarts);
+		return map2;
+	}
+	
+	@RequestMapping("deleteAllCart")
+	@ResponseBody
+	public Map<String, Object> deleteAllCart(@RequestParam String openId) {
+		Map<String, Object> map2 = new HashMap<String, Object>();
+		cartSertvice.deleteAllCart(openId);
+		map2.put("code", 200);
+		return map2;
+	}
+	
+	@RequestMapping("addNum")
+	@ResponseBody
+	public Map<String, Object> addNum(@RequestParam String openId,@RequestParam int foodId) {
+		Map<String, Object> map2 = new HashMap<String, Object>();
+		System.out.println("sub"+openId+"==="+foodId);
+		System.out.println("add");
+		cartSertvice.addNum(openId, foodId);
+		map2.put("code", 200);
+		return map2;
+	}
+	
+	@RequestMapping("subNum")
+	@ResponseBody
+	public Map<String, Object> subNum(@RequestParam String openId,@RequestParam int foodId) {
+		Map<String, Object> map2 = new HashMap<String, Object>();
+		System.out.println("sub"+openId+"==="+foodId);
+		cartSertvice.subNum(openId, foodId);
+		map2.put("code", 200);
 		return map2;
 	}
 
