@@ -33,4 +33,22 @@ public class CartServiceImpl implements CartService{
 		return cartMapper.selectByOpenId(openId);
 	}
 
+	@Override
+	public void deleteAllCart(String openId) {
+		// TODO Auto-generated method stub
+		cartMapper.deleteAllCart(openId);
+	}
+
+	@Override
+	public void addNum(String openId, int foodId) {
+		// TODO Auto-generated method stub
+		cartMapper.addNum(openId, foodId);
+	}
+
+	@Override
+	public void subNum(String openId, int foodId) {
+		// TODO Auto-generated method stub
+		cartMapper.subNum(openId, foodId);
+	}
+
 }
